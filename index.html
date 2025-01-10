@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Salón de Belleza</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        /* Reset global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(45deg, #ff4081, #f50057);
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #ff4081;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* About us */
+        .about-section {
+            margin: 10px 0 40px;
+            text-align: center;
+            background: url('https://www.flowww.es/hubfs/Q22023%20Mayo/Blog/como-puedo-mejorar-la-atencion-al-cliente-en-mi-salon-de-belleza.webp') no-repeat center center/cover;
+            color: #ff82ac;
+            padding: 150px 20px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .about-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+
+        .about-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            z-index: 2;
+            color: #000000;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            background-color: rgba(148, 140, 140, 0.596);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Services */
+        .services-section {
+            margin: 30px 0;
+        }
+
+        .services-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .services {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            background: rgba(148, 140, 140, 0.596);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+        }
+
+        .service-item i {
+            font-size: 2rem;
+            color: #ff4081;
+            margin-bottom: 10px;
+        }
+
+        .service-item h3 {
+            margin-bottom: 10px;
+        }
+  /* Carousel gallery */
+  .gallery-section {
+            margin: 30px 0;
+        }
+
+        .gallery-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .carousel {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+
+        }
+
+        .carousel img {
+            width: auto;
+             max-height: 500px;
+             max-width: 100%;
+            border-radius: 10px;
+            margin: 0 auto;
+            
+        }
+        .contact-section {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-form,
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form form button {
+    padding: 10px 20px;
+    background-color: #ff4081;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.contact-form form button:hover {
+    background-color: #f50057;
+}
+
+.contact-info p,
+.contact-info a {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #ff4081;
+    text-decoration: underline;
+}
+
+        /* Testimonials */
+        .testimonials-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .testimonials-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial {
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .testimonial .rating {
+            color: #ff4081;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Hair & Beauty Lounge</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">Sobre Nosotros</a>
+        <a href="#services">Servicios</a>
+        <a href="#gallery">Galería</a>
+        <a href="#testimonials">Comentarios</a>
+        <a href="#contact">Contacto</a>
+    </nav>
+
+    <!-- About Us -->
+    <div class="container">
+        <section id="about" class="about-section">
+            <h1>RESALTAMOS TU BELLEZA NATURAL</h1>
+            <p class="about-text">Con años de experiencia en el cuidado del cabello, la piel y las uñas, nuestro equipo de profesionales está comprometido a ofrecerte una experiencia única en cada visita. Utilizamos productos de las mejores marcas y técnicas innovadoras para garantizar resultados que superen tus expectativas.</p>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="services-section">
+            <h2 class="services-title">Servicios</h2>
+            <div class="services">
+                <div class="service-item">
+                    <i class="fas fa-cut"></i>
+                    <h3>Corte de Cabello</h3>
+                    <p>Renueva tu look con cortes modernos y personalizados.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Manicura</h3>
+                    <p>Uñas perfectas con diseños únicos.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-spa"></i>
+                    <h3>Spa Facial</h3>
+                    <p>Relájate con nuestros tratamientos faciales premium.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="gallery-section">
+            <h2 class="gallery-title">El lugar donde comienza tu mejor versión</h2>
+            <div class="carousel">
+                <div><img src="https://ladinamo.com/sites/default/files/styles/adicionales_proyectos/public/adicionales-proyectos/peluqueria2.jpg?itok=8XUFhdCu" alt="Galería 3"></div>
+                <div><img src="https://ladinamo.com/sites/default/files/styles/adicionales_proyectos/public/adicionales-proyectos/peluqueria4.jpg?itok=eVURHcWD" alt="Galería 4"></div>
+                <div><img src="https://ladinamo.com/sites/default/files/styles/adicionales_proyectos/public/adicionales-proyectos/peluqueria.jpg?itok=7adpHBG8" alt="Galería 5"></div>
+                <div><img src="https://ladinamo.com/sites/default/files/styles/adicionales_proyectos/public/adicionales-proyectos/peluqueria1_.jpg?itok=nYt27KFh" alt="Galería 6"></div>
+            </div>
+        </section>
+
+       
+<!-- Testimonials -->
+<section id="testimonials" class="testimonials-section">
+    <h2 class="testimonials-title">Comentarios</h2>
+    <div class="testimonial">
+        <p><strong>María López</strong></p>
+        <p>"El servicio es excelente, mi cabello nunca se había sentido tan saludable."</p>
+        <p class="rating">★★★★★</p>
+    </div>
+    <div class="testimonial">
+        <p><strong>Carlos Martínez</strong></p>
+        <p>"Ambiente muy profesional y relajante. Definitivamente regresaré."</p>
+        <p class="rating">★★★★☆</p>
+    </div>
+    <div class="testimonial">
+        <p><strong>Ana Pérez</strong></p>
+        <p>"Me encantó mi manicure, la atención al detalle es inigualable."</p>
+        <p class="rating">★★★★★</p>
+    </div>
+</section>
+
+
+
+ <!-- Contact -->
+<section id="contact" class="contact-section">
+    <h2 class="contact-title">Contacto</h2>
+    <div class="contact-container">
+        <div class="contact-form">
+            <h3>Formulario de Contacto</h3>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <textarea name="message" rows="5" placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div class="contact-info">
+            <h3>Información de Contacto</h3>
+            <p><strong>Teléfono:</strong> +123 456 789</p>
+            <p><strong>Correo:</strong> info@salondebelleza.com</p>
+            <p><strong>Dirección:</strong> Calle Ejemplo 123, Ciudad, País</p>
+            <h3>Síguenos</h3>
+            <p>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a><br>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Salón de Belleza. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.carousel').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: false,
+            adaptiveHeight: true
+        });
+    });
+</script>
+</body>
+</html>
